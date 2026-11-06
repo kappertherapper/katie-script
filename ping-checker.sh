@@ -58,15 +58,16 @@ check_company() {
     echo
     echo "=== COMPANY ==="
 
-    ping_device "companyrouter (lan)"   "192.168.15.1"
-    ping_device "companyrouter (wan)"   "192.168.16.10"
-    ping_device "DC01"                  "192.168.15.4"
-    ping_device "Winclient01"           "192.168.15.50"
-    ping_device "Www"                   "192.168.15.5"
+    ping_device "companyrouter (dmz)"    "192.168.13.1"
+    ping_device "www"                    "192.168.13.5"
+    ping_device "companyrouter (cli)"    "192.168.14.1"
+    ping_device "Winclient01"            "192.168.14.50"
+    ping_device "companyrouter (lan)"     "192.168.15.1"
+    ping_device "companyrouter (wan)"    "192.168.16.10"
+    ping_device "DC01"                   "192.168.15.4"
     ping_device "Db-app-1"              "192.168.15.7"
-    ping_device "App-2"                 "192.168.15.8"
+    ping_device "App-2"                  "192.168.15.8"
 }
-
 # No arguments
 if [ "$#" -eq 0 ]; then
     show_help

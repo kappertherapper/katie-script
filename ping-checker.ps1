@@ -4,20 +4,19 @@
 $CheckMark = [char]0x2713   # ✓
 $CrossMark = [char]0x2717   # ✗
 
-function Show-Help {
-    Write-Host "Usage: .\ping-check.ps1 [option]"
+function Test-Company {
     Write-Host ""
-    Write-Host "Options:"
-    Write-Host "  all       Ping all home, factory and company devices"
-    Write-Host "  home      Ping home devices"
-    Write-Host "  factory   Ping factory devices"
-    Write-Host "  company   Ping company devices"
-    Write-Host ""
-    Write-Host "Examples:"
-    Write-Host "  .\ping-check.ps1 home"
-    Write-Host "  .\ping-check.ps1 factory"
-    Write-Host "  .\ping-check.ps1 company"
-    Write-Host "  .\ping-check.ps1 all"
+    Write-Host "=== COMPANY ==="
+
+    Test-Device "companyrouter (dmz)"   "192.168.13.1"
+    Test-Device "www"                   "192.168.13.5"
+    Test-Device "companyrouter (cli)"   "192.168.14.1"
+    Test-Device "Winclient01"           "192.168.14.50"
+    Test-Device "companyrouter (lan)"   "192.168.15.1"
+    Test-Device "companyrouter (wan)"   "192.168.16.10"
+    Test-Device "DC01"                  "192.168.15.4"
+    Test-Device "Db-app-1"              "192.168.15.7"
+    Test-Device "App-2"                 "192.168.15.8"
 }
 
 function Test-Device {
